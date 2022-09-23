@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_scaner/src/providers/scan_list_provider.dart';
 
 import '../providers/db_provider.dart';
 import '../providers/ui_provider.dart';
@@ -19,7 +20,9 @@ class HomePage extends StatelessWidget {
         title: Text('Historial'),
         actions: [
           IconButton(
-              onPressed: (){},
+              onPressed: (){
+                Provider.of<ScansListProvider>(context, listen: false).borrarTodos();
+              },
               icon: Icon(Icons.delete_forever))
         ],
       ),
@@ -41,20 +44,21 @@ class _HomePageBody extends StatelessWidget {
     //obtener el selected menu opt
     final uiProvider = Provider.of<UiProvider>(context);
 
-    //TODO: Temporal leer la base de datos
-    final tempScan = new ScanModel(valor: 'https://google.com');
-    DBProvider.db.deleteAllScans().then((scan) => print);
-
-
     //option seleted
     int currentIndex = uiProvider.selectedMenuOpt;
 
+    //Usar el ScanListProvider
+    final scanListProvider = Provider.of<ScansListProvider>(context, listen:  false);
+
     switch( currentIndex){
       case 0:
+        scanListProvider.cargarScansByTipe('geo');
         return const Mapaspage();
       case 1:
+        scanListProvider.cargarScansByTipe('http');
         return const DireccionesPage();
       default:
+        scanListProvider.cargarScansByTipe('geo');
         return const Mapaspage();
     }
   }

@@ -39,6 +39,6 @@ class ScansListProvider extends ChangeNotifier {
 
   borrarScanPorId(int id) async{
     await DBProvider.db.deleteScan(id);
-    cargarScansByTipe(tipoSeleccionado);
+    //cargarScansByTipe(tipoSeleccionado);
   }
 }

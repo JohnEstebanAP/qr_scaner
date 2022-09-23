@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_scaner/src/pages/home_page.dart';
 import 'package:qr_scaner/src/pages/mapa_page.dart';
+import 'package:qr_scaner/src/providers/scan_list_provider.dart';
 import 'package:qr_scaner/src/providers/ui_provider.dart';
 
 
@@ -13,15 +14,16 @@ class MyApp extends StatelessWidget {
     var colorPrimari = Colors.deepPurple;
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_)=> new UiProvider()),
+        ChangeNotifierProvider(create: (_)=> UiProvider()),
+        ChangeNotifierProvider(create: (_)=> ScansListProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'QR Reader',
         initialRoute: 'home',
         routes: {
-          'home': (_) => HomePage(),
-          'mapa': (_) => MapaPage(),
+          'home': (_) => const HomePage(),
+          'mapa': (_) => const MapaPage(),
         },
         theme: ThemeData.light().copyWith(
             primaryColor: colorPrimari,

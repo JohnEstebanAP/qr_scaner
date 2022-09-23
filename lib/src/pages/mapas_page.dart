@@ -5,8 +5,11 @@ class Mapaspage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Mapas Page'),
+    return ListView.builder(
+        itemCount: 10,
+        itemBuilder: (_, index) => ListTile(
+          leading: Icon(Icons.map, color: Theme.of(context).primaryColor),
+        )
     );
   }
 }

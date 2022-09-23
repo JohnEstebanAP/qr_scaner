@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../providers/ui_provider.dart';
 import '../widgets/custom_navigatorbar.dart';
-import '../widgets/scan_buttom.dart';/*
+import '../widgets/scan_buttom.dart';
 import 'package:provider/provider.dart';
-import 'package:qr_reader/src/pages/derecciones_page.dart';
-import 'package:qr_reader/src/pages/mapas_page.dart';
-import 'package:qr_reader/src/providers/ui_provider.dart';
-import 'package:qr_reader/src/widgets/custom_navigatorbar.dart';
-import 'package:qr_reader/src/widgets/scan_buttom.dart';
-*/
+
+import 'derecciones_page.dart';
+import 'mapas_page.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -23,7 +22,7 @@ class HomePage extends StatelessWidget {
               icon: Icon(Icons.delete_forever))
         ],
       ),
-      body: Text('Hola home page'),//_HomePageBody(),
+      body: _HomePageBody(),
 
       bottomNavigationBar: CustomNavigatorBar(),
       floatingActionButton: ScanButtom(),
@@ -32,7 +31,7 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-/*
+
 class _HomePageBody extends StatelessWidget {
   const _HomePageBody({Key? key}) : super(key: key);
   @override
@@ -57,4 +56,3 @@ class _HomePageBody extends StatelessWidget {
     }
   }
 }
-*/

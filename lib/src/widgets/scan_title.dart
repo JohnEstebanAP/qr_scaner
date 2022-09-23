@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:qr_scaner/src/utils/utils.dart';
 
 import '../providers/scan_list_provider.dart';
 
@@ -36,7 +37,7 @@ class ScanTitles extends StatelessWidget {
             subtitle: Text(scans[index].id.toString()),
             trailing:
             const Icon(Icons.keyboard_arrow_right, color: Colors.grey),
-            onTap: () => print(scans[index].id),
+            onTap: () => launchURL(context, scans[index]),
           ),
         ));
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../providers/db_provider.dart';
 import '../providers/ui_provider.dart';
 import '../widgets/custom_navigatorbar.dart';
 import '../widgets/scan_buttom.dart';
@@ -41,7 +42,9 @@ class _HomePageBody extends StatelessWidget {
     final uiProvider = Provider.of<UiProvider>(context);
 
     //TODO: Temporal leer la base de datos
-    //DBProvider.db.database;
+    final tempScan = new ScanModel(valor: 'https://google.com');
+    DBProvider.db.deleteAllScans().then((scan) => print);
+
 
     //option seleted
     int currentIndex = uiProvider.selectedMenuOpt;

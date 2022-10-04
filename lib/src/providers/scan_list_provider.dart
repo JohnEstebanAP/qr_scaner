@@ -12,11 +12,11 @@ class ScansListProvider extends ChangeNotifier {
     final id = await DBProvider.db.nuevoScan(nuevoScan);
     nuevoScan.id = id;
 
-    if(tipoSeleccionado == nuevoScan.tipo){
+    //if(tipoSeleccionado == nuevoScan.tipo){
       scans.add(nuevoScan);
-      notifyListeners();
-    }
 
+    //}
+    notifyListeners();
     return nuevoScan;
   }
 
